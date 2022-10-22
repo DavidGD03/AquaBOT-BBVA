@@ -1,0 +1,125 @@
+<div class="container align-items-center">
+  <div class="col-xs-10 col-lg-6 container">
+     <div class="row">
+        <div class="p-4 row">
+           <h1 class="text-center">Descubre la tarjeta que tenemos para ti</h1>
+        </div>
+        <form [formGroup]="usuarioForm" (ngSubmit)="registrarUsuario()">
+        <div class="form-group">
+           <div class="mb-3 row">
+              <label for="nombre" class="col-lg-5 col-form-label">Nombre</label>
+              <div class="col-lg-7  ">
+                 <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+              </div>
+           </div>
+           <div class="alert alert-danger my-3"
+              *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched">
+              Debe ingresar un nombre para registrarse
+           </div>
+           <div class="alert alert-danger my-3" *ngIf="usuarioForm.get('nombre')?.hasError('maxlength')">
+              El nombre no debe exceder los 50 carácteres
+           </div>
+        </div>
+
+        <div class="form-group">
+          <div class="mb-3 row">
+             <label for="apellidos" class="col-lg-5 col-form-label">Apellidos</label>
+             <div class="col-lg-7  ">
+                <input formControlName="apellidos" type="text" class="form-control" placeholder="Apellidos">
+             </div>
+          </div>
+          <div class="alert alert-danger my-3"
+             *ngIf="usuarioForm.get('apellidos')?.hasError('required') && usuarioForm.get('apellidos')?.touched">
+             Debe ingresar los apellidos para registrarse
+          </div>
+          <div class="alert alert-danger my-3" *ngIf="usuarioForm.get('apellidos')?.hasError('maxlength')">
+             Los apellidos no debe exceder los 50 carácteres
+          </div>
+       </div>
+     <div class="form-group">
+       <div class="mb-3 row">
+          <label for="sexo" class="col-lg-5 col-form-label">Sexo</label>
+          <div class="col-lg-7  ">
+            <select formControlName="sexo" class="form-select" aria-label="sexo">
+              <option value="1">Masculino</option>
+              <option value="2">Femenino</option>
+            </select>
+          </div>
+       </div>
+    </div>
+      <div class="form-group">
+        <div class="mb-3 row">
+          <label for="nacimiento" class="col-lg-5 col-form-label">Fecha de nacimiento</label>
+          <div class="col-lg-7  ">
+              <input formControlName="nacimiento" type="date" class="form-control">
+          </div>
+        </div>
+    </div>
+      <div class="form-group">
+        <div class="mb-3 row">
+          <label for="expedicion" class="col-lg-5 col-form-label">Fecha de expedición cédula</label>
+          <div class="col-lg-7  ">
+              <input formControlName="expedicion" type="date" class="form-control">
+          </div>
+        </div>
+    </div>
+       <div class="form-group">
+        <div class="mb-3 row">
+           <label for="cedula" class="col-lg-5 col-form-label">Cédula</label>
+           <div class="col-lg-7  ">
+              <input formControlName="cedula" type="number" class="form-control" placeholder="Nº de Cédula de Ciudadanía">
+           </div>
+        </div>
+        <div class="alert alert-danger my-3"
+           *ngIf="usuarioForm.get('cedula')?.hasError('required') && usuarioForm.get('cedula')?.touched">
+           Debe ingresar una cedula para registrarse
+        </div>
+        <div class="alert alert-danger my-3" *ngIf="usuarioForm.get('cedula')?.hasError('maxlength')">
+           La cedula no debe exceder los 20 carácteres
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="mb-3 row">
+           <label for="celular" class="col-lg-5 col-form-label">Celular</label>
+           <div class="col-lg-7  ">
+              <input formControlName="celular" type="number" class="form-control" placeholder="Nº de celular">
+           </div>
+        </div>
+        <div class="alert alert-danger my-3"
+           *ngIf="usuarioForm.get('celular')?.hasError('required') && usuarioForm.get('celular')?.touched">
+           Debe ingresar un celular para registrarse
+        </div>
+        <div class="alert alert-danger my-3" *ngIf="usuarioForm.get('celular')?.hasError('maxlength')">
+           El celular no debe exceder los 20 carácteres
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="mb-3 row">
+           <label for="correo" class="col-lg-5 col-form-label">Correo</label>
+           <div class="col-lg-7  ">
+              <input formControlName="correo" type="email" class="form-control" placeholder="Correo electrónico">
+           </div>
+        </div>
+        <div class="alert alert-danger my-3"
+           *ngIf="usuarioForm.get('correo')?.hasError('required') && usuarioForm.get('correo')?.touched">
+           Debe ingresar un correo para registrarse
+        </div>
+        <div class="alert alert-danger my-3" *ngIf="usuarioForm.get('correo')?.hasError('maxlength')">
+           El correo no debe exceder los 50 carácteres
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check mb-4 mt-4">
+          <label for="tratamiento" class="form-check-label"></label>
+          <input class="form-check-input" formControlName="tratamiento" type="checkbox">
+          Autorizo el Tratamientos de mis Datos conforme con la política de Tratamiento de Datos Personales de BBVA Colombia.
+        </div>
+      </div>
+        <div class="col-12 text-center mt-3">
+           <button type="submit" class="btn btn-primary col-8"
+              [disabled]="!usuarioForm.valid || !usuarioForm.get('tratamiento')?.value">Conocer oferta</button>
+        </div>
+        </form>
+     </div>
+  </div>
+</div>
