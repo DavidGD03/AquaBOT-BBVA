@@ -8,7 +8,7 @@ import { Usuario } from './usuario';
 })
 export class UsuarioService {
 
-    private backUrl: string = "http://127.0.0.1:5000/"
+    private backUrl: string = "https://jftppm4fz2.us-east-1.awsapprunner.com/"
 
     constructor(private http: HttpClient) { }
 

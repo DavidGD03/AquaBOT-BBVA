@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "http://127.0.0.1:5000/",
+        "target": "https://jftppm4fz2.us-east-1.awsapprunner.com/",
         "secure": false,
         "logLevel": "debug",
         "pathRewrite": {
