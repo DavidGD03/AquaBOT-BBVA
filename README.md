@@ -1,4 +1,6 @@
-# AquaBot
+# Front-end para la app de AquaBOT
+
+Se desplegó en un Amazon S3 Bucket.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
