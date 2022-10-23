@@ -37,8 +37,19 @@ export class UsuarioSignupComponent implements OnInit {
   }
 
   registrarUsuario() {
-    this.router.navigate(['obtener']);
-    this.showSuccess();
+    this.usuarioService.userSignUp(this.usuarioForm.get('nombre')?.value, this.usuarioForm.get('apellidos')?.value,
+      this.usuarioForm.get('sexo')?.value, this.usuarioForm.get('correo')?.value, this.usuarioForm.get('nacimiento')?.value, this.usuarioForm.get('cedula')?.value,
+      this.usuarioForm.get('celular')?.value, this.usuarioForm.get('expedicion')?.value)
+      .subscribe(res => {
+        const decodedToken = this.helper.decodeToken(res.token);
+        this.router.navigate([`/obtener/${this.usuarioForm.get('nombre')?.value}/${this.usuarioForm.get('apellidos')?.value}/${this.usuarioForm.get('sexo')?.value}/${this.usuarioForm.get('nacimiento')?.value}/${this.usuarioForm.get('expedicion')?.value}/${this.usuarioForm.get('cedula')?.value}/${this.usuarioForm.get('celular')?.value}/${this.usuarioForm.get('correo')?.value}`])
+        this.showSuccess()
+      },
+        error => {
+          this.showError(`Ha ocurrido un error: ${error.message}`)
+        })
+    this.router.navigate([`/obtener/${this.usuarioForm.get('nombre')?.value}/${this.usuarioForm.get('apellidos')?.value}/${this.usuarioForm.get('sexo')?.value}/${this.usuarioForm.get('nacimiento')?.value}/${this.usuarioForm.get('expedicion')?.value}/${this.usuarioForm.get('cedula')?.value}/${this.usuarioForm.get('celular')?.value}/${this.usuarioForm.get('correo')?.value}`])
+
   }
   /*
   registrarUsuario() {

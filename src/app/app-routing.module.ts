@@ -10,7 +10,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'obtener',
+    path: 'obtener/:nombre/:apellidos/:sexo/:nacimiento/:expedicion/:cedula/:celular/:correo',
     component: UsuarioLoginComponent,
     pathMatch: 'full'
   },

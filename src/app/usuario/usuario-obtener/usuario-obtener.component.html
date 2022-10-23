@@ -2,7 +2,9 @@
   <div class="row align-items-center mt-4">
       <div class="card text-center">
         <h2 class="my-2">BBVA</h2>
-        <p class="my-2">Tu cupo ha sido preaprobado</p>
+        <img src="https://www.ocu.org/-/media/ocu/images/home/dinero/tarjetas/tarjeta_aqua_1600x900.jpg?rev=9dccc2d8-2b35-4405-bcf8-f019e635d302&hash=24FCF710C06C7D9DC126E3E869E7667E" alt="..." width="" height="200" class="center">
+
+        <p class="my-2">Felicidades, tu tarjeta de crédito Aqua ha sido preaprobada, por favor selecciona el cupo deseado:</p>
       </div>
     <form [formGroup]="usuarioForm" (ngSubmit)="cancelarTarjeta()">
     <div class="col-xs-10 col-lg-5 mt-4 container">
@@ -33,6 +35,19 @@
         </div>
       </div>
     </div>
+
   </form>
   </div>
 </div>
+<div class="alert-dismissible text-center cookiealert" [hidden]="!isShow" role="alert">
+  <div class="cookiealert-container">
+    <b>Por restricciones de WhatsApp no se puede enviar mensajes automáticamente sin antes tener autorización del usuario.</b>
+    Para completar dicha autorización, se requiere enviar un mensaje al número del AquaBOT. Por favor da click en aceptar para
+    realizar dicho envío de forma automática.
+    <button type="button" (click)="featureHide()" class="btn btn-success btn-sm acceptcookies"  aria-label="Close">
+        Aceptar
+    </button>
+  </div>
+</div>
+
+
